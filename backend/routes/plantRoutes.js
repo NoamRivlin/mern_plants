@@ -7,8 +7,7 @@ const {
   deletePlant,
 } = require('../controllers/plantController');
 
-// router.route('/').get(getPlants).post(createPlants);
-router.route('/').get(getPlants);
+router.route('/').get(getPlants).post(createPlants);
 router.route('/:id').put(updatePlant).delete(deletePlant);
 
 // router.get('/', getIdeas);
