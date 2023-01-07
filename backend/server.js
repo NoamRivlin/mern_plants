@@ -4,7 +4,7 @@ const port = process.env.PORT || 4545;
 
 const app = express();
 
-app.use('/api/plants', require('./routes/PlantRoutes'));
+app.use('/api/plants', require('./routes/plantRoutes'));
 
 app.listen(port, () => {
   console.log(`on port ${port}`);

@@ -3,12 +3,13 @@ const router = express.Router();
 const {
   getPlants,
   createPlants,
-  UpadtePlant,
+  updatePlant,
   deletePlant,
-} = require('../controllers/PlantController');
+} = require('../controllers/plantController');
 
-router.route('/').get(getPlants).post(createPlants);
-router.route('/:id').put(UpadtePlant).delete(deletePlant);
+// router.route('/').get(getPlants).post(createPlants);
+router.route('/').get(getPlants);
+router.route('/:id').put(updatePlant).delete(deletePlant);
 
 // router.get('/', getIdeas);
 

@@ -2,7 +2,11 @@
 //access  private
 
 const getPlants = (req, res) => {
-  res.status(200).json({ message: 'get plants' });
+  try {
+    res.status(200).json({ message: 'get plants' });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 //route  POST /api/plants
@@ -15,7 +19,7 @@ const createPlants = (req, res) => {
 //route  PUT /api/ideas
 //access  private
 
-const UpadtePlant = (req, res) => {
+const updatePlant = (req, res) => {
   res.status(200).json({ message: `updated Plant ${req.params.id}` });
 };
 
@@ -29,6 +33,6 @@ const deletePlant = (req, res) => {
 module.exports = {
   getPlants,
   createPlants,
-  UpadtePlant,
+  updatePlant,
   deletePlant,
 };
