@@ -48,13 +48,14 @@ const updatePlant = asyncHandler(async (req, res) => {
 //access  private
 
 const deletePlant = asyncHandler(async (req, res) => {
+  // const plant = await Plant.findById(req.params.id);
   const plant = await Plant.findByIdAndRemove(req.params.id);
   console.log(plant);
   if (!plant) {
     res.status(400);
     throw new Error('plant not found');
   }
-  // await plant.
+  // await plant.remove()
 
   res.status(200).json({ message: `deleted plant ${req.params.id}` });
 });
