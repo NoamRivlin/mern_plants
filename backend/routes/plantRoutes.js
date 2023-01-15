@@ -6,9 +6,10 @@ const {
   updatePlant,
   deletePlant,
 } = require('../controllers/plantController');
+const { protect } = require('../middleware/authMiddleware');
 
-router.route('/').get(getPlants).post(createPlants);
-router.route('/:id').put(updatePlant).delete(deletePlant);
+router.route('/').get(protect, getPlants).post(protect, createPlants);
+router.route('/:id').put(protect, updatePlant).delete(protect, deletePlant);
 
 // router.get('/', getIdeas);
 

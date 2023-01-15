@@ -12,7 +12,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(201).json({
-      user,
+      // user,
       id: user.id, // it doenst matter if its _id or id. so weird
       username: user.username,
       token: generateToken(user.id), //try with just user.id
@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
   });
   if (user) {
     res.status(201).json({
-      user,
+      // user,
       _id: user.id,
       username: user.username,
       token: generateToken(user._id), //try with just user.id
@@ -60,9 +60,14 @@ const registerUser = asyncHandler(async (req, res) => {
 
 // desc get  User
 // route GET  /api/user/me
-//access private
+//access public
 const getMe = asyncHandler(async (req, res) => {
-  res.json({ messgage: 'your data' });
+  // res.json({ messgage: 'your data' });
+  const { id, username } = await User.findById(req.user.id);
+  res.status(200).json({
+    id: id,
+    username,
+  });
 });
 
 //generate JWT token *doesnt work without curlybrackets, why? id is already a string
