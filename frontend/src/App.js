@@ -1,17 +1,21 @@
 // import React from 'react';
-import { BrowserRouter as Router, Routers, Route } from 'react-router-dom';
-import Login from './pages/Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
       <Router>
         <div className='container'>
-          <Routers>
+          <Header />
+          <Routes>
             <Route path='/' element={<Dashboard />}></Route>
-          </Routers>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Register />}></Route>
+          </Routes>
         </div>
       </Router>
     </>
