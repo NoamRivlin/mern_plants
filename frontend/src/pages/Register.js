@@ -1,3 +1,4 @@
+import { set } from 'mongoose';
 import { useEffect, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 
@@ -11,7 +12,16 @@ function Register() {
 
   const { name, email, password, passwordConfirm } = formData;
 
-  const onChange = () => {};
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -23,7 +33,7 @@ function Register() {
       </section>
 
       <section className='form'>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
               type='text'
@@ -32,7 +42,7 @@ function Register() {
               name='name'
               value={name}
               placeholder='Enter name'
-              onChange={onchange}
+              onChange={onChange}
             />
           </div>
           <div className='form-group'>
@@ -43,7 +53,7 @@ function Register() {
               name='email'
               value={email}
               placeholder='Enter email'
-              onChange={onchange}
+              onChange={onChange}
             />
           </div>
           <div className='form-group'>
@@ -54,7 +64,7 @@ function Register() {
               name='password'
               value={password}
               placeholder='Enter password'
-              onChange={onchange}
+              onChange={onChange}
             />
           </div>
           <div className='form-group'>
@@ -65,7 +75,7 @@ function Register() {
               name='passwordConfirm'
               value={passwordConfirm}
               placeholder='Confirm password'
-              onChange={onchange}
+              onChange={onChange}
             />
           </div>
           <div className='form-group'>
