@@ -1,6 +1,6 @@
-import { set } from 'mongoose';
 import { useEffect, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
+// import { set } from 'mongoose';
 
 function Register() {
   const [formData, setFormData] = useState({
