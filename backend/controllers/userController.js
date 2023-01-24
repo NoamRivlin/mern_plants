@@ -29,9 +29,12 @@ const loginUser = asyncHandler(async (req, res) => {
 //access public
 const registerUser = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
-  if (!username || !password) {
+  if (!password) {
     throw new Error('add all fields');
   }
+  // if (!username || !password) {
+  //   throw new Error('add all fields');
+  // }
   //check if user already exists
   const userExists = await User.findOne({ username });
   if (userExists) {
