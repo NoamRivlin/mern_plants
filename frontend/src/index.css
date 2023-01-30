@@ -184,7 +184,7 @@ h1, h2, h3 {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #000 transparent #555 transparent;
+  border-color: rgb(43, 163, 127) transparent rgb(200, 34, 34) transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }

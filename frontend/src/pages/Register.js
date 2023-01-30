@@ -29,7 +29,7 @@ function Register() {
       toast.error(message);
     }
     if (isSuccess || user) {
-      // navigate('/');
+      navigate('/');
       //user is true, i signend in once FML. need to impliment a logout first........
     }
 
